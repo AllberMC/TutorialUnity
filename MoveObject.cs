@@ -4,11 +4,14 @@ using UnityEngine; //Siempre debe estar importada
 
 public class MoveObject : MonoBehaviour { //Nuestra clase publica esta heredando (:) de la clase MonoBehaviour
 
-    float deltaRotation = 30f;
-    float deltaMove = 10f;
-	// Use this for initialization
+    public float deltaRotation = 30f; //velocidad con la que rotamos
+    public float deltaMove = 10f; //velocidad con la nos movemos.
+
+    
+    
+    // Use this for initialization
 	void Start () {
-		
+        
 	}
 	
 	// Update is called once per frame
