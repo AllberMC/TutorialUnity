@@ -4,6 +4,8 @@ using UnityEngine; //Siempre debe estar importada
 
 public class MoveObject : MonoBehaviour { //Nuestra clase publica esta heredando (:) de la clase MonoBehaviour
 
+    float deltaRotation = 30f;
+    float deltaMove = 10f;
 	// Use this for initialization
 	void Start () {
 		
@@ -11,6 +13,35 @@ public class MoveObject : MonoBehaviour { //Nuestra clase publica esta heredando
 	
 	// Update is called once per frame
 	void Update () {
-        transform.Rotate(new Vector3(0f, 30f, 0f)*Time.deltaTime);
+        Rotate();
+        Movement();
 	}
+
+    void Rotate() { //Con esto realizamos la rotación de nuestro objeto
+        if (Input.GetKey(KeyCode.Q)) { 
+            transform.Rotate(new Vector3(0f, -deltaRotation, 0f) * Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.E)) {
+            transform.Rotate(new Vector3(0f, deltaRotation, 0f) * Time.deltaTime);
+        }
+    }
+
+    void Movement() { //Con esto realizamos el movimiento del objeto, hacemos que se traslade
+        if(Input.GetKey(KeyCode.W)) {
+            transform.Translate( Vector3.forward * deltaMove * Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            transform.Translate(Vector3.back * deltaMove * Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            transform.Translate(Vector3.left * deltaMove * Time.deltaTime);
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            transform.Translate(Vector3.right * deltaMove * Time.deltaTime);
+        }
+
+    }
 }
