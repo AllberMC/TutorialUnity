@@ -6,11 +6,9 @@ public class Fisicas : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        //rigidbody.Addforce(Vector3.right + 50f, ForceMode.VelocityChange);
-	}
+        float x = Random.Range(-1f, 1f);
+        Rigidbody rb = GetComponent<Rigidbody>();
+        rb.AddForce(new Vector3(x,0f,1f) * 100f, ForceMode.Impulse);
+    }
 	
-	// Update is called once per frame
-	void Update () {
-        rigidbody.AddForce(Vector3.one + 50f, ForceMode.Force);
-	}
 }
