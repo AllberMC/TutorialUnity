@@ -17,6 +17,8 @@ public class instanciar : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.Space)) { 
             GameObject cube = Instantiate(prefabs, transform.position, transform.rotation) as GameObject; //intanciame el objeto en esa posicion y en esa rotacion
             cube.name = "foo" + count++;
+            Fisicas fisica = cube.GetComponent<Fisicas>();
+            fisica.Shoot();
             Destroy(cube, 3f);
         }
     }
